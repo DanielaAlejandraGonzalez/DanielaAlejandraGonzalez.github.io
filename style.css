@@ -573,7 +573,7 @@ footer a:hover {
         gap: 40px;
     }
 
-    .projects-grid {
+    .projects-grid { 
         grid-template-columns: 1fr;
     }
 
@@ -588,4 +588,87 @@ footer a:hover {
     footer {
         flex-direction: column;
     }
+}
+/* ========================================
+   VISOR DE IMÁGENES
+   ======================================== */
+
+.image-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px;
+
+    background: rgba(0, 0, 0, 0.94);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+
+    cursor: zoom-out;
+}
+
+.image-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.image-modal img {
+    max-width: 90vw;
+    max-height: 90vh;
+
+    width: auto;
+    height: auto;
+
+    object-fit: contain;
+
+    border: 1px solid var(--border);
+
+    box-shadow:
+        0 20px 80px rgba(0, 0, 0, 0.8);
+
+    cursor: default;
+}
+
+.modal-close {
+    position: absolute;
+
+    top: 25px;
+    right: 30px;
+
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(13, 13, 15, 0.8);
+
+    color: var(--text);
+
+    border: 1px solid var(--border);
+
+    font-size: 2rem;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    z-index: 10000;
+}
+
+.modal-close:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
 }
