@@ -701,8 +701,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 </script>
+<script>
+document.querySelectorAll('.project-gallery img').forEach(function(img) {
 
-    </script>
+    img.addEventListener('click', function() {
+
+        alert('¡El clic funciona!');
+
+    });
+
+});
+</script>
 
 
 </body>
