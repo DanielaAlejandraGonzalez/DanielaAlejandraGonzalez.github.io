@@ -639,99 +639,68 @@
          ======================================== -->
 
     <script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
 
-        const galleryImages =
-            document.querySelectorAll(
-                '.project-gallery img'
-            );
+    const images = document.querySelectorAll(".project-gallery img");
+    const modal = document.getElementById("image-modal");
+    const modalImage = document.getElementById("modal-image");
+    const closeButton = document.querySelector(".modal-close");
 
+    if (!modal || !modalImage) {
+        return;
+    }
 
-        const modal =
-            document.getElementById(
-                'image-modal'
-            );
+    images.forEach(function (image) {
 
+        image.style.cursor = "zoom-in";
 
-        const modalImage =
-            document.getElementById(
-                'modal-image'
-            );
+        image.addEventListener("click", function (event) {
 
+            event.preventDefault();
+            event.stopPropagation();
 
-        const closeButton =
-            document.querySelector(
-                '.modal-close'
-            );
+            modalImage.src = this.src;
+            modalImage.alt = this.alt;
 
-
-        galleryImages.forEach(image => {
-
-            image.addEventListener(
-                'click',
-                () => {
-
-                    modalImage.src =
-                        image.src;
-
-                    modalImage.alt =
-                        image.alt;
-
-                    modal.classList.add(
-                        'active'
-                    );
-
-                }
-            );
+            modal.classList.add("active");
 
         });
 
+    });
 
-        closeButton.addEventListener(
-            'click',
-            () => {
+    if (closeButton) {
 
-                modal.classList.remove(
-                    'active'
-                );
+        closeButton.addEventListener("click", function () {
 
-            }
-        );
+            modal.classList.remove("active");
 
+        });
 
-        modal.addEventListener(
-            'click',
-            (event) => {
+    }
 
-                if (
-                    event.target === modal
-                ) {
+    modal.addEventListener("click", function (event) {
 
-                    modal.classList.remove(
-                        'active'
-                    );
+        if (event.target === modal) {
 
-                }
+            modal.classList.remove("active");
 
-            }
-        );
+        }
 
+    });
 
-        document.addEventListener(
-            'keydown',
-            (event) => {
+    document.addEventListener("keydown", function (event) {
 
-                if (
-                    event.key === 'Escape'
-                ) {
+        if (event.key === "Escape") {
 
-                    modal.classList.remove(
-                        'active'
-                    );
+            modal.classList.remove("active");
 
-                }
+        }
 
-            }
-        );
+    });
+
+});
+</script>
 
     </script>
 
