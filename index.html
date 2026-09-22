@@ -632,35 +632,37 @@
 
     </div>
 
+>
+<!-- ========================================
+     JAVASCRIPT — VISOR
+     ======================================== -->
 
-
-    <!-- ========================================
-         JAVASCRIPT — VISOR
-         ======================================== -->
-
-    <script>
 <script>
+
 document.addEventListener("DOMContentLoaded", function () {
 
-    const images = document.querySelectorAll(".project-gallery img");
-    const modal = document.getElementById("image-modal");
-    const modalImage = document.getElementById("modal-image");
-    const closeButton = document.querySelector(".modal-close");
+    const images =
+        document.querySelectorAll(".project-gallery img");
 
-    if (!modal || !modalImage) {
-        return;
-    }
+    const modal =
+        document.getElementById("image-modal");
+
+    const modalImage =
+        document.getElementById("modal-image");
+
+    const closeButton =
+        document.querySelector(".modal-close");
+
 
     images.forEach(function (image) {
 
         image.style.cursor = "zoom-in";
 
-        image.addEventListener("click", function (event) {
 
-            event.preventDefault();
-            event.stopPropagation();
+        image.addEventListener("click", function () {
 
             modalImage.src = this.src;
+
             modalImage.alt = this.alt;
 
             modal.classList.add("active");
@@ -669,15 +671,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     });
 
-    if (closeButton) {
 
-        closeButton.addEventListener("click", function () {
+    closeButton.addEventListener("click", function () {
 
-            modal.classList.remove("active");
+        modal.classList.remove("active");
 
-        });
+    });
 
-    }
 
     modal.addEventListener("click", function (event) {
 
@@ -688,6 +688,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
     });
+
 
     document.addEventListener("keydown", function (event) {
 
@@ -700,20 +701,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
+
 </script>
-<script>
-document.querySelectorAll('.project-gallery img').forEach(function(img) {
-
-    img.addEventListener('click', function() {
-
-        alert('¡El clic funciona!');
-
-    });
-
-});
-</script>
-
-
+    
 </body>
 
 </html>
