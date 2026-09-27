@@ -1008,6 +1008,37 @@ a.whatsapp-button:hover {
 
     box-shadow: 0 8px 25px rgba(255, 107, 53, 0.25);
 }
-```
+
+/* BOTÓN DE CONTACTO */
+
+a.contact-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 10px;
+    padding: 14px 24px;
+
+    background: transparent;
+    color: var(--text);
+
+    border: 1px solid var(--border);
+    border-radius: 8px;
+
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition: all 0.3s ease;
+}
+
+a.contact-button:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+
+    transform: translateY(-3px);
+}
 
 
