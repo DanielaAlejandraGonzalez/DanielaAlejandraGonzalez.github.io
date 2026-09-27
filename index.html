@@ -749,172 +749,137 @@
 
 
 
-    <!-- ========================================
-         VISOR DE IMÁGENES
-         ======================================== -->
+   ```html
+<!-- ========================================
+     VISOR DE IMÁGENES
+     ======================================== -->
 
-    <div
-        document.getElementById("image-modal")
-        class="image-modal"
-    >
+<div id="image-modal" class="image-modal">
 
-        <div class="modal-content">
+    <div class="modal-content">
 
-            <button
-                class="modal-close"
-                aria-label="Cerrar imagen"
-            >
-                &times;
-            </button>
+        <button
+            type="button"
+            class="modal-close"
+            aria-label="Cerrar imagen"
+        >
+            &times;
+        </button>
 
+        <img
+            id="modal-image"
+            src=""
+            alt="Imagen ampliada"
+        >
 
-            <img
-                document.getElementById("modal-image")
-                src=""
-                alt="Imagen ampliada"
-            >
-
-
-            <p
-                document.getElementById("modal-description")
-                class="modal-description"
-            ></p>
-
-
-        </div>
+        <p
+            id="modal-description"
+            class="modal-description"
+        ></p>
 
     </div>
 
+</div>
 
 
-    <!-- ========================================
-         JAVASCRIPT — VISOR DE IMÁGENES
-         ======================================== -->
+<!-- ========================================
+     JAVASCRIPT — VISOR DE IMÁGENES
+     ======================================== -->
 
-    <script>
+<script>
 
-        document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
 
+    const images = document.querySelectorAll(
+        ".project-image img, .project-gallery img"
+    );
 
-            /* ========================================
-               BUSCAR TODAS LAS IMÁGENES
-               ======================================== */
+    const modal = document.getElementById("image-modal");
+    const modalImage = document.getElementById("modal-image");
+    const modalDescription = document.getElementById("modal-description");
+    const closeButton = document.querySelector(".modal-close");
 
-            const images = document.querySelectorAll(
-                ".project-image img, .project-gallery img"
-            );
 
+    /* COMPROBAR QUE TODO EXISTE */
 
-            /* ========================================
-               ELEMENTOS DEL MODAL
-               ======================================== */
+    if (
+        !modal ||
+        !modalImage ||
+        !modalDescription ||
+        !closeButton
+    ) {
+        console.error("Error: no se encontró algún elemento del visor de imágenes.");
+        return;
+    }
 
-            const modal =
-                document.getElementById("image-modal");
 
+    /* ABRIR IMÁGENES */
 
-            const modalImage =
-                document.getElementById("modal-image");
+    images.forEach(function (image) {
 
+        image.style.cursor = "zoom-in";
 
-            const modalDescription =
-                document.getElementById("modal-description");
+        image.addEventListener("click", function () {
 
+            modalImage.src = image.src;
+            modalImage.alt = image.alt;
 
-            const closeButton =
-                document.querySelector(".modal-close");
+            modalDescription.textContent =
+                image.dataset.description || image.alt;
 
+            modal.classList.add("active");
 
-
-            /* ========================================
-               ABRIR IMAGEN
-               ======================================== */
-
-            images.forEach(function (image) {
-
-
-                image.style.cursor = "zoom-in";
-
-
-                image.addEventListener("click", function () {
-
-
-                    /* Imagen */
-
-                    modalImage.src = this.src;
-
-
-                    /* Texto alternativo */
-
-                    modalImage.alt = this.alt;
-
-
-                    /* Descripción personalizada */
-
-                    modalDescription.textContent =
-                        this.dataset.description || this.alt;
-
-
-                    /* Mostrar modal */
-
-                    modal.classList.add("active");
-
-
-                });
-
-            });
-
-
-
-            /* ========================================
-               CERRAR CON X
-               ======================================== */
-
-            closeButton.addEventListener("click", function () {
-
-                modal.classList.remove("active");
-
-            });
-
-
-
-            /* ========================================
-               CERRAR HACIENDO CLICK FUERA
-               ======================================== */
-
-            modal.addEventListener("click", function (event) {
-
-
-                if (event.target === modal) {
-
-                    modal.classList.remove("active");
-
-                }
-
-            });
-
-
-
-            /* ========================================
-               CERRAR CON ESC
-               ======================================== */
-
-            document.addEventListener("keydown", function (event) {
-
-
-                if (event.key === "Escape") {
-
-                    modal.classList.remove("active");
-
-                }
-
-            });
-
+            document.body.style.overflow = "hidden";
 
         });
 
-    </script>
+    });
 
+
+    /* CERRAR CON X */
+
+    closeButton.addEventListener("click", function () {
+
+        modal.classList.remove("active");
+
+        document.body.style.overflow = "";
+
+    });
+
+
+    /* CERRAR HACIENDO CLICK FUERA */
+
+    modal.addEventListener("click", function (event) {
+
+        if (event.target === modal) {
+
+            modal.classList.remove("active");
+
+            document.body.style.overflow = "";
+
+        }
+
+    });
+
+
+    /* CERRAR CON ESC */
+
+    document.addEventListener("keydown", function (event) {
+
+        if (event.key === "Escape") {
+
+            modal.classList.remove("active");
+
+            document.body.style.overflow = "";
+
+        }
+
+    });
+
+});
+
+</script>
+```
 
 </body>
 
