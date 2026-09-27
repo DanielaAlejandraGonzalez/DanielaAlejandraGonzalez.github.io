@@ -969,4 +969,41 @@ footer a:hover {
         grid-template-columns: repeat(2, 1fr);
     }
 }
-```
+```css
+/* BOTÓN WHATSAPP */
+
+.whatsapp-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    padding: 14px 24px;
+
+    background: var(--accent);
+    color: #fff;
+
+    text-decoration: none;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 600;
+
+    border: 1px solid var(--accent);
+    border-radius: 8px;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.whatsapp-button span {
+    font-size: 1.2rem;
+}
+
+.whatsapp-button:hover {
+    background: transparent;
+    color: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.2);
+}
+
