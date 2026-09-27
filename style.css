@@ -1040,5 +1040,17 @@ a.contact-button:hover {
 
     transform: translateY(-3px);
 }
+```css
+/* CENTRAR CONTENIDO DE CONTACTO */
 
+.contact-section a {
+    display: block;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
 
+.contact-section .whatsapp-button {
+    display: inline-flex;
+    margin-top: 20px;
+}
