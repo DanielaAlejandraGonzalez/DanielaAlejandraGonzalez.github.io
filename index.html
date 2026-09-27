@@ -12,7 +12,7 @@
 
     <meta
         name="description"
-        content="Portfolio de Daniela Alejandra Gonzalez, diseñadora grafica y desarrolladora de videojuegos junior, especializada en narrativa, guion, ilustración y diseño visual."
+        content="Portfolio de Daniela Alejandra Gonzalez, diseñadora y desarrolladora de videojuegos junior, especializada en narrativa, guion, ilustración y diseño visual."
     >
 
     <link rel="stylesheet" href="style.css">
@@ -77,7 +77,7 @@
             <div class="hero-text">
 
                 <p class="eyebrow">
-                    GAME DESIGNER · GRAPHIC DESIGNER - NARRATIVA · ARTE
+                    GAME DESIGNER · NARRATIVA · ARTE
                 </p>
 
                 <h1>
@@ -359,7 +359,7 @@
                         <img
                             src="images/Delorean/DeloreanPortada.png"
                             alt="Reimaginación de la identidad visual de DeLorean"
-                            data-description="Nuevo logo de Delorean insperado en la caracteristica principal de los automoviles, sus puertas ala de gaviota."
+                            data-description="Imagen principal del proyecto de reimaginación de la identidad visual de DeLorean y su aplicación a una nueva generación de automóviles."
                         >
 
                     </div>
@@ -397,25 +397,25 @@
                             <img
                                 src="images/Delorean/DeloreanCar1.png"
                                 alt="Concepto de automóvil DeLorean 1"
-                                data-description="Diseño frontal del automovil y el logo en su parrilla con iluminacion LED"
+                                data-description="Primera propuesta conceptual del automóvil DeLorean. Exploración de formas, proporciones y elementos visuales inspirados en el lenguaje de diseño original de la marca."
                             >
 
                             <img
                                 src="images/Delorean/DeloreanCar2.png"
                                 alt="Concepto de automóvil DeLorean 2"
-                                data-description="Parte traseradel automovil donde se aprecian sus caracteristicas puertas y un diseño diferente en su logotipo trasero reaccionando activamente en color al comportamiento del coche."
+                                data-description="Segunda propuesta conceptual del automóvil DeLorean, explorando una interpretación diferente de sus líneas y superficies."
                             >
 
                             <img
                                 src="images/Delorean/DeloreanCar3.png"
                                 alt="Concepto de automóvil DeLorean 3"
-                                data-description="Vista semi aerea del vehiculo y su estetica &quot;futurista&quot; y su iluminacion "
+                                data-description="Tercera propuesta conceptual del proyecto, centrada en una reinterpretación más moderna de la estética del automóvil."
                             >
 
                             <img
                                 src="images/Delorean/DeloreanCar4.png"
                                 alt="Concepto de automóvil DeLorean 4"
-                                data-description="Vista interna del automovil y el logotipo alternativo diseñado, asi como estampados simples en si interior y luces con el logotipo."
+                                data-description="Cuarta propuesta conceptual del DeLorean, mostrando otra aproximación al diseño exterior y a la identidad visual del vehículo."
                             >
 
                         </div>
@@ -749,137 +749,172 @@
 
 
 
-   ```html
-<!-- ========================================
-     VISOR DE IMÁGENES
-     ======================================== -->
+    <!-- ========================================
+         VISOR DE IMÁGENES
+         ======================================== -->
 
-<div id="image-modal" class="image-modal">
+    <div
+        id="image-modal"
+        class="image-modal"
+    >
 
-    <div class="modal-content">
+        <div class="modal-content">
 
-        <button
-            type="button"
-            class="modal-close"
-            aria-label="Cerrar imagen"
-        >
-            &times;
-        </button>
+            <button
+                class="modal-close"
+                aria-label="Cerrar imagen"
+            >
+                &times;
+            </button>
 
-        <img
-            id="modal-image"
-            src=""
-            alt="Imagen ampliada"
-        >
 
-        <p
-            id="modal-description"
-            class="modal-description"
-        ></p>
+            <img
+                id="modal-image"
+                src=""
+                alt="Imagen ampliada"
+            >
+
+
+            <p
+                id="modal-description"
+                class="modal-description"
+            ></p>
+
+
+        </div>
 
     </div>
 
-</div>
 
 
-<!-- ========================================
-     JAVASCRIPT — VISOR DE IMÁGENES
-     ======================================== -->
+    <!-- ========================================
+         JAVASCRIPT — VISOR DE IMÁGENES
+         ======================================== -->
 
-<script>
+    <script>
 
-document.addEventListener("DOMContentLoaded", function () {
-
-    const images = document.querySelectorAll(
-        ".project-image img, .project-gallery img"
-    );
-
-    const modal = document.getElementById("image-modal");
-    const modalImage = document.getElementById("modal-image");
-    const modalDescription = document.getElementById("modal-description");
-    const closeButton = document.querySelector(".modal-close");
+        document.addEventListener("DOMContentLoaded", function () {
 
 
-    /* COMPROBAR QUE TODO EXISTE */
+            /* ========================================
+               BUSCAR TODAS LAS IMÁGENES
+               ======================================== */
 
-    if (
-        !modal ||
-        !modalImage ||
-        !modalDescription ||
-        !closeButton
-    ) {
-        console.error("Error: no se encontró algún elemento del visor de imágenes.");
-        return;
-    }
+            const images = document.querySelectorAll(
+                ".project-image img, .project-gallery img"
+            );
 
 
-    /* ABRIR IMÁGENES */
+            /* ========================================
+               ELEMENTOS DEL MODAL
+               ======================================== */
 
-    images.forEach(function (image) {
+            const modal =
+                document.getElementById("image-modal");
 
-        image.style.cursor = "zoom-in";
 
-        image.addEventListener("click", function () {
+            const modalImage =
+                document.getElementById("modal-image");
 
-            modalImage.src = image.src;
-            modalImage.alt = image.alt;
 
-            modalDescription.textContent =
-                image.dataset.description || image.alt;
+            const modalDescription =
+                document.getElementById("modal-description");
 
-            modal.classList.add("active");
 
-            document.body.style.overflow = "hidden";
+            const closeButton =
+                document.querySelector(".modal-close");
+
+
+
+            /* ========================================
+               ABRIR IMAGEN
+               ======================================== */
+
+            images.forEach(function (image) {
+
+
+                image.style.cursor = "zoom-in";
+
+
+                image.addEventListener("click", function () {
+
+
+                    /* Imagen */
+
+                    modalImage.src = this.src;
+
+
+                    /* Texto alternativo */
+
+                    modalImage.alt = this.alt;
+
+
+                    /* Descripción personalizada */
+
+                    modalDescription.textContent =
+                        this.dataset.description || this.alt;
+
+
+                    /* Mostrar modal */
+
+                    modal.classList.add("active");
+
+
+                });
+
+            });
+
+
+
+            /* ========================================
+               CERRAR CON X
+               ======================================== */
+
+            closeButton.addEventListener("click", function () {
+
+                modal.classList.remove("active");
+
+            });
+
+
+
+            /* ========================================
+               CERRAR HACIENDO CLICK FUERA
+               ======================================== */
+
+            modal.addEventListener("click", function (event) {
+
+
+                if (event.target === modal) {
+
+                    modal.classList.remove("active");
+
+                }
+
+            });
+
+
+
+            /* ========================================
+               CERRAR CON ESC
+               ======================================== */
+
+            document.addEventListener("keydown", function (event) {
+
+
+                if (event.key === "Escape") {
+
+                    modal.classList.remove("active");
+
+                }
+
+            });
+
 
         });
 
-    });
+    </script>
 
-
-    /* CERRAR CON X */
-
-    closeButton.addEventListener("click", function () {
-
-        modal.classList.remove("active");
-
-        document.body.style.overflow = "";
-
-    });
-
-
-    /* CERRAR HACIENDO CLICK FUERA */
-
-    modal.addEventListener("click", function (event) {
-
-        if (event.target === modal) {
-
-            modal.classList.remove("active");
-
-            document.body.style.overflow = "";
-
-        }
-
-    });
-
-
-    /* CERRAR CON ESC */
-
-    document.addEventListener("keydown", function (event) {
-
-        if (event.key === "Escape") {
-
-            modal.classList.remove("active");
-
-            document.body.style.overflow = "";
-
-        }
-
-    });
-
-});
-
-</script>
-```
 
 </body>
 
