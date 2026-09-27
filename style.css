@@ -13,12 +13,8 @@
     --muted: #a2a2ad;
     --accent: #ff6b35;
     --accent-light: #ff9a6c;
-    --border: rgba(255, 255, 255, 0.1);
+    --border: rgba(255,255,255,0.1);
 }
-
-/* ========================================
-   RESET
-   ======================================== */
 
 * {
     margin: 0;
@@ -37,7 +33,6 @@ body {
     line-height: 1.6;
 }
 
-
 /* ========================================
    NAVBAR
    ======================================== */
@@ -48,7 +43,8 @@ header {
     width: 100%;
     z-index: 1000;
 
-    background: rgba(13, 13, 15, 0.85);
+    background: rgba(13,13,15,0.85);
+
     backdrop-filter: blur(15px);
 
     border-bottom: 1px solid var(--border);
@@ -59,6 +55,7 @@ header {
     margin: auto;
 
     height: 80px;
+
     padding: 0 30px;
 
     display: flex;
@@ -68,9 +65,11 @@ header {
 
 .logo {
     color: var(--text);
+
     text-decoration: none;
 
     font-family: 'Space Grotesk', sans-serif;
+
     font-size: 1.4rem;
     font-weight: 700;
 
@@ -84,6 +83,7 @@ header {
 
 .nav-links a {
     color: var(--muted);
+
     text-decoration: none;
 
     font-size: 0.9rem;
@@ -95,7 +95,6 @@ header {
     color: var(--accent);
 }
 
-
 /* ========================================
    HERO
    ======================================== */
@@ -104,15 +103,19 @@ header {
     min-height: 100vh;
 
     max-width: 1200px;
+
     margin: auto;
 
     padding: 140px 30px 80px;
 
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
 
     position: relative;
+
     overflow: hidden;
 }
 
@@ -120,6 +123,7 @@ header {
     max-width: 750px;
 
     position: relative;
+
     z-index: 2;
 }
 
@@ -127,6 +131,7 @@ header {
     color: var(--accent);
 
     font-size: 0.8rem;
+
     font-weight: 700;
 
     letter-spacing: 3px;
@@ -140,6 +145,7 @@ h1 {
     font-size: clamp(3.5rem, 9vw, 7rem);
 
     line-height: 0.95;
+
     letter-spacing: -5px;
 
     margin-bottom: 35px;
@@ -185,6 +191,7 @@ h1 span {
 
 .primary {
     background: var(--accent);
+
     color: white;
 }
 
@@ -212,6 +219,7 @@ h1 span {
     right: 0;
 
     width: 400px;
+
     height: 400px;
 
     opacity: 0.7;
@@ -221,6 +229,7 @@ h1 span {
     position: absolute;
 
     width: 350px;
+
     height: 350px;
 
     border: 1px solid var(--accent);
@@ -237,6 +246,7 @@ h1 span {
     position: absolute;
 
     width: 20px;
+
     height: 20px;
 
     background: var(--accent);
@@ -246,11 +256,13 @@ h1 span {
 
 .circle::before {
     top: 40px;
+
     left: 40px;
 }
 
 .circle::after {
     bottom: 30px;
+
     right: 40px;
 }
 
@@ -258,6 +270,7 @@ h1 span {
     position: absolute;
 
     top: 50%;
+
     left: 50%;
 
     font-size: 5rem;
@@ -268,6 +281,7 @@ h1 span {
 }
 
 @keyframes rotate {
+
     from {
         transform: rotate(0deg);
     }
@@ -275,8 +289,8 @@ h1 span {
     to {
         transform: rotate(360deg);
     }
-}
 
+}
 
 /* ========================================
    SECTIONS
@@ -320,9 +334,9 @@ h1 span {
     color: var(--muted);
 
     margin-top: -30px;
+
     margin-bottom: 50px;
 }
-
 
 /* ========================================
    ABOUT
@@ -331,239 +345,5 @@ h1 span {
 .about-grid {
     display: grid;
 
-    grid-template-columns: 1.5fr 1fr;
-
-    gap: 80px;
-
-    align-items: center;
-}
-
-.about-text p {
-    color: var(--muted);
-
-    font-size: 1.1rem;
-
-    margin-bottom: 25px;
-}
-
-.about-card {
-    background: var(--surface);
-
-    border: 1px solid var(--border);
-
-    padding: 50px;
-
-    min-height: 300px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-}
-
-.card-symbol {
-    color: var(--accent);
-
-    font-size: 2.5rem;
-
-    margin-bottom: 25px;
-}
-
-.about-card h3 {
-    font-family: 'Space Grotesk', sans-serif;
-
-    font-size: 2rem;
-
-    line-height: 1.1;
-
-    margin-bottom: 20px;
-}
-
-.about-card p {
-    color: var(--muted);
-}
-
-
-/* ========================================
-   PROJECTS
-   ======================================== */
-
-.projects-grid {
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 25px;
-}
-
-.project-card {
-    background: var(--surface);
-
-    border: 1px solid var(--border);
-
-    overflow: hidden;
-
-    position: relative;
-
-    transition: 0.3s;
-}
-
-.project-card:hover {
-    transform: translateY(-8px);
-
-    border-color: var(--accent);
-}
-
-.project-number {
-    position: absolute;
-
-    top: 15px;
-    right: 15px;
-
-    z-index: 2;
-
-    background: var(--background);
-
-    padding: 5px 10px;
-
-    font-family: 'Space Grotesk', sans-serif;
-
-    font-size: 0.75rem;
-}
-
-
-/* ========================================
-   IMAGEN PRINCIPAL DEL PROYECTO
-   ======================================== */
-
-.project-image {
-    height: 320px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    overflow: hidden;
-
-    background: #111114;
-}
-
-.project-image img {
-    width: 100%;
-    height: 100%;
-
-    object-fit: contain;
-
-    display: block;
-
-    cursor: zoom-in;
-
-    transition: 0.3s ease;
-}
-
-.project-image img:hover {
-    transform: scale(1.02);
-}
-
-
-/* ========================================
-   GALERÍA DE PROYECTOS
-   ======================================== */
-
-.project-gallery {
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 10px;
-
-    margin-top: 25px;
-}
-
-.project-gallery img {
-    width: 100%;
-
-    height: 120px;
-
-    object-fit: contain;
-
-    display: block;
-
-    background: #111114;
-
-    border: 1px solid var(--border);
-
-    cursor: zoom-in;
-
-    transition: 0.3s ease;
-}
-
-.project-gallery img:hover {
-    border-color: var(--accent);
-
-    transform: translateY(-3px);
-}
-
-
-/* ========================================
-   INFORMACIÓN DEL PROYECTO
-   ======================================== */
-
-.project-info {
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 8px;
-
-    margin-top: 25px;
-}
-
-.project-info span {
-    font-size: 0.65rem;
-
-    color: var(--muted);
-
-    border: 1px solid var(--border);
-
-    padding: 5px 8px;
-
-    letter-spacing: 1px;
-}
-
-.placeholder {
-    background:
-        linear-gradient(135deg, #24242b, #111114);
-}
-
-.placeholder span {
-    color: #666670;
-
-    font-family: 'Space Grotesk', sans-serif;
-
-    font-size: 0.75rem;
-
-    letter-spacing: 2px;
-}
-
-.project-content {
-    padding: 30px;
-}
-
-.project-category {
-    color: var(--accent);
-
-    font-size: 0.7rem;
-
-    font-weight: 700;
-
-    letter-spacing: 2px;
-
-    margin-bottom: 12px;
-}
-
-.project-content h3 {
-    font-family: 'Space Grotesk'
+    grid-temp
 ```
