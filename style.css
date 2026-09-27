@@ -672,3 +672,22 @@ footer a:hover {
     border-color: var(--accent);
     color: white;
 }
+footer a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* ========================================
+   DESCRIPCIÓN DE LAS IMÁGENES
+   ======================================== */
+
+.modal-description {
+    margin: 20px auto 0;
+    max-width: 800px;
+    padding: 0 20px 20px;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #ffffff;
+}
