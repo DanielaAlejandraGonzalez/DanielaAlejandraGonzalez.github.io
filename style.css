@@ -590,6 +590,7 @@ footer a:hover {
     }
 }
 ```css
+/* ```css
 /* ========================================
    VISOR DE IMÁGENES
    ======================================== */
@@ -603,20 +604,156 @@ footer a:hover {
     align-items: center;
     justify-content: center;
 
-    padding: 40px 20px;
+    padding: 30px;
 
     background: rgba(0, 0, 0, 0.94);
 
     opacity: 0;
     visibility: hidden;
 
-    transition:
-        opacity 0.3s ease,
-        visibility 0.3s ease;
-
-    cursor: zoom-out;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
+
+/* VISOR ABIERTO */
+
+.image-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* CONTENIDO */
+
+.modal-content {
+    position: relative;
+
+    width: 100%;
+    max-width: 1000px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    cursor: default;
+}
+
+
+/* IMAGEN GRANDE */
+
+#modal-image {
+    display: block;
+
+    max-width: 90vw;
+    max-height: 75vh;
+
+    width: auto;
+    height: auto;
+
+    object-fit: contain;
+
+    border: 1px solid var(--border);
+
+    box-shadow: 0 20px 80px rgba(0, 0, 0, 0.8);
+}
+
+
+/* DESCRIPCIÓN */
+
+.modal-description {
+    display: block;
+
+    width: 100%;
+    max-width: 800px;
+
+    margin: 20px auto 0;
+
+    padding: 15px 20px;
+
+    background: var(--surface);
+
+    border-left: 3px solid var(--accent);
+
+    color: var(--text);
+
+    font-size: 0.95rem;
+    line-height: 1.6;
+
+    text-align: center;
+}
+
+
+/* BOTÓN CERRAR */
+
+.modal-close {
+    position: fixed;
+
+    top: 25px;
+    right: 30px;
+
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(13, 13, 15, 0.9);
+
+    color: var(--text);
+
+    border: 1px solid var(--border);
+
+    font-size: 2rem;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    z-index: 10000;
+}
+
+
+.modal-close:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
+}
+
+
+/* MÓVIL */
+
+@media (max-width: 800px) {
+
+    .image-modal {
+        padding: 60px 15px 20px;
+    }
+
+    #modal-image {
+        max-width: 95vw;
+        max-height: 60vh;
+    }
+
+    .modal-description {
+        max-width: 95vw;
+        margin-top: 15px;
+        padding: 12px 15px;
+        font-size: 0.85rem;
+    }
+
+    .modal-close {
+        top: 15px;
+        right: 15px;
+
+        width: 42px;
+        height: 42px;
+
+        font-size: 1.7rem;
+    }
+
+}
+```
 
 /* ========================================
    VISOR ACTIVO
